@@ -5,6 +5,11 @@
 #ifndef lcddraw_included
 #define lcddraw_included
 
+
+
+
+void drawTwoRect();
+
 /** Draw single pixel at col, row 
  *
  *  \param col Column to draw to

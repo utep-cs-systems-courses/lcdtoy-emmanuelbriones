@@ -27,51 +27,52 @@ switch_init()			/* setup switch */
   P2OUT |= SWITCHES;		/* pull-ups for switches */
   P2DIR &= ~SWITCHES;		/* set switches' bits for input */
   switch_update_interrupt_sense();
-  led_update();
 }
 
 void
 switch_interrupt_handler()
 {
-  char p1val = switch_update_interrupt_sense();
-  s1 = (p1val & SW1) ? 1 : 0; //switch 1
+  char p2val = switch_update_interrupt_sense();
+  s1 = (p2val & SW1) ? 1 : 0; //switch 1
 
-  s2 = (p1val & SW2) ? 1 : 0; //switch 2
+  s2 = (p2val & SW2) ? 1 : 0; //switch 2
 
-  s3 = (p1val & SW3) ? 1 : 0; //switch 3
+  s3 = (p2val & SW3) ? 1 : 0; //switch 3
 
-  s4 = (p1val & SW4) ? 1 : 0; //switch 4
+  s4 = (p2val & SW4) ? 1 : 0; //switch 4
   
-    buzzer_set_period(0);
+  buzzer_set_period(0);
   
-  if (!(p1val & s1)) {
+  if (!(p2val & s1)) {
     state_advance();
-    tempo = 12;
+    tempo = 120;
     star_wars();
     clearScreen(COLOR_RED);
     //clearScreen(COLOR_BLUE);
-    drawString5x7(20,50, "Emmanuel's project", COLOR_YELLOW, COLOR_BLACK);
+    drawString5x7(30,50, "Hello There", COLOR_YELLOW, COLOR_BLACK);
+    drawTwoRect();
     switch_state_changed = 1;
   }
 
-  else if (!(s2 & p1val)) {
+  else if (!(s2 & p2val)) {
     buzzer_set_period(473);
     switch_state_changed = 2;
     led_update();
   }
 
-  else if (!(s3 & p1val)) {
+  else if (!(s3 & p2val)) {
     buzzer_set_period(723);
     switch_state_changed = 3;
     led_update();
   }
 
-  else if (!(s4 & p1val)) {
+  else if (!(s4 & p2val)) {
     tempo = 50;
     mario();
     switch_state_changed = 4;
     led_update();
   }
+  
   
   //next_state();
   switch_state_changed = 1;

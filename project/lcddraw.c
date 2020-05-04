@@ -115,3 +115,21 @@ void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
   fillRectangle(colMin + width, rowMin, 1, height, colorBGR);
 }
 
+void drawTwoRect(){
+    int i = 0;
+    
+    for (i; i<100; i++){
+        drawPixel(10, 10+i, COLOR_GREEN);
+        drawPixel(10+i, 10 , COLOR_GREEN);
+        drawPixel(110,110-i,COLOR_GREEN);
+        drawPixel(110-i,110,COLOR_GREEN);
+        if (i<60){
+            drawPixel(90,90-i,COLOR_GREEN);
+            drawPixel(90-i,90,COLOR_GREEN);
+            drawPixel(30, 30+i, COLOR_GREEN);
+            drawPixel(30+i, 30 , COLOR_GREEN);
+        }
+    }
+    
+}
+
