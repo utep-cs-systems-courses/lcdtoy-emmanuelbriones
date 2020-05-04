@@ -10,6 +10,7 @@
 
 void drawTwoRect();
 void drawTriangle();
+void drawDiamond();
 
 /** Draw single pixel at col, row 
  *

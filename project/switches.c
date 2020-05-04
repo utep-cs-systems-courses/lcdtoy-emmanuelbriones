@@ -57,7 +57,8 @@ switch_interrupt_handler()
   else if (!(s2 & p2val)) {
     buzzer_set_period(473);
     clearScreen(COLOR_GREEN);
-    drawString5x7(20,80, "We are AWESOME!", COLOR_RED, COLOR_WHITE);
+    drawString5x7(15,75, "We are AWESOME!", COLOR_RED, COLOR_WHITE);
+    drawDiamond();
     switch_state_changed = 2;
     led_update();
   }

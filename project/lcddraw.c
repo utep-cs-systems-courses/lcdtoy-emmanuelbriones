@@ -150,3 +150,18 @@ void drawTriangle(){
     }
 }
 
+void drawDiamond(){
+    drawPixel(60,30, COLOR_BLACK);
+    for(int i=1; i<50;i++){
+
+        drawPixel(60+i,i+30, COLOR_BLACK);
+
+        drawPixel(60-i,30+i,COLOR_BLACK);
+    }
+    for (int i=0; i<49;i++){
+        drawPixel(11+i,i+79, COLOR_BLACK);
+
+        drawPixel(109-i,79+i,COLOR_BLACK);
+    }
+}
+
