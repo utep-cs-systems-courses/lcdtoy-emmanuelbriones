@@ -9,6 +9,7 @@
 
 
 void drawTwoRect();
+void drawTriangle();
 
 /** Draw single pixel at col, row 
  *

@@ -117,13 +117,15 @@ void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
 
 void drawTwoRect(){
     int i = 0;
-    
+    //draw two squares
     for (i; i<100; i++){
+        //draw the outer square
         drawPixel(10, 10+i, COLOR_GREEN);
         drawPixel(10+i, 10 , COLOR_GREEN);
         drawPixel(110,110-i,COLOR_GREEN);
         drawPixel(110-i,110,COLOR_GREEN);
         if (i<60){
+            //draw the inner square
             drawPixel(90,90-i,COLOR_GREEN);
             drawPixel(90-i,90,COLOR_GREEN);
             drawPixel(30, 30+i, COLOR_GREEN);
@@ -131,5 +133,20 @@ void drawTwoRect(){
         }
     }
     
+}
+
+void drawTriangle(){
+    drawPixel(60,60, COLOR_BLACK);
+    for(int i=1; i<50;i++){
+
+        drawPixel(60+i,i+60, COLOR_BLACK);
+
+        drawPixel(60-i,60+i,COLOR_BLACK);
+    }
+    for (int i = 0;i<100;i++){
+        
+        drawPixel(10+i,110,COLOR_BLACK);
+
+    }
 }
 

@@ -44,11 +44,11 @@ switch_interrupt_handler()
   buzzer_set_period(0);
   
   if (!(p2val & s1)) {
+    //draw two squares and the word 'hello there'
     state_advance();
     tempo = 120;
     star_wars();
     clearScreen(COLOR_RED);
-    //clearScreen(COLOR_BLUE);
     drawString5x7(30,50, "Hello There", COLOR_YELLOW, COLOR_BLACK);
     drawTwoRect();
     switch_state_changed = 1;
@@ -56,19 +56,28 @@ switch_interrupt_handler()
 
   else if (!(s2 & p2val)) {
     buzzer_set_period(473);
+    clearScreen(COLOR_GREEN);
+    drawString5x7(20,80, "We are AWESOME!", COLOR_RED, COLOR_WHITE);
     switch_state_changed = 2;
     led_update();
   }
 
   else if (!(s3 & p2val)) {
     buzzer_set_period(723);
+    clearScreen(COLOR_ORANGE);
+    drawString5x7(50,60, "GO", COLOR_BLUE, COLOR_ORANGE);
+    drawString5x7(40,70, "MINERS!", COLOR_BLUE, COLOR_ORANGE);
     switch_state_changed = 3;
     led_update();
   }
 
   else if (!(s4 & p2val)) {
+    //draw a triangle and the word magic
     tempo = 50;
     mario();
+    clearScreen(COLOR_YELLOW);
+    drawString5x7(40,50, "MAGIC!", COLOR_RED, COLOR_WHITE);
+    drawTriangle();
     switch_state_changed = 4;
     led_update();
   }
